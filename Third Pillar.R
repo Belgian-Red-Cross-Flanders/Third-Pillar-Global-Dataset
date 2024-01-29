@@ -965,7 +965,7 @@ all_countries <- database
   # You will need to merge the dataframes carefully and ensure that countries with complete data are not written differently in separate rows.
 all_countries$Country[all_countries$Country == "Bosnia and Herzegovina"] <- "Bosnia"
 all_countries$Country[all_countries$Country == "Czechia"] <- "Czech Republic"
-all_countries$Country[all_countries$Country == "Côte d'Ivoire"] <- "Cote D'Ivoire"
+all_countries$Country[all_countries$Country == "CÃ´te d'Ivoire"] <- "Cote D'Ivoire"
 all_countries$Country[all_countries$Country == "Iran, Islamic Republic of"] <- "Iran"
 all_countries$Country[all_countries$Country == "Korea, Republic of"] <- "Korea"
 all_countries$Country[all_countries$Country == "Lao People's Democratic Republic"] <- "Laos"
@@ -1083,7 +1083,7 @@ all_countries <- all_countries %>%
 
 all_countries$Country[all_countries$Country == "Bosnia and Herzegovina"] <- "Bosnia"
 all_countries$Country[all_countries$Country == "Czechia"] <- "Czech Republic"
-all_countries$Country[all_countries$Country == "Côte d'Ivoire"] <- "Cote D'Ivoire"
+all_countries$Country[all_countries$Country == "CÃ´te d'Ivoire"] <- "Cote D'Ivoire"
 all_countries$Country[all_countries$Country == "Cote d'Ivoire"] <- "Cote D'Ivoire"
 all_countries$Country[all_countries$Country == "Iran, Islamic Republic of"] <- "Iran"
 all_countries$Country[all_countries$Country == "Korea, Republic of"] <- "Korea"
@@ -1135,7 +1135,7 @@ rownames(all_countries) <- names_all_countries
 all_countries[,1] <- NULL
 
 ###################################################################################################################################
-### Footnote 17 Analysis ###
+### Footnote 16 Analysis ###
 ###################################################################################################################################
 
 # Remove # to continue analysis with removal of these countries
@@ -1536,7 +1536,7 @@ world_map <- world_map %>%
 
 # Correct country names in world_map
 world_map$name[world_map$name == "Bosnia and Herz."] <- "Bosnia"
-world_map$name[world_map$name == "Côte d'Ivoire"] <- "Cote D'Ivoire"
+world_map$name[world_map$name == "CÃ´te d'Ivoire"] <- "Cote D'Ivoire"
 world_map$name[world_map$name == "Czechia"] <- "Czech Republic"
 world_map$name[world_map$name == "Dominican Rep."] <- "Dominican Republic"
 world_map$name[world_map$name == "Myanmar"] <- "Myanmar (Burma)"
@@ -1661,7 +1661,7 @@ country_groups <- read_excel("input\\country groups.xlsx")
 
 country_groups$Country[country_groups$Country == "Bosnia and Herzegovina"] <- "Bosnia"
 country_groups$Country[country_groups$Country == "Czechia"] <- "Czech Republic"
-country_groups$Country[country_groups$Country == "Côte d'Ivoire"] <- "Cote D'Ivoire"
+country_groups$Country[country_groups$Country == "CÃ´te d'Ivoire"] <- "Cote D'Ivoire"
 country_groups$Country[country_groups$Country == "Iran, Islamic Republic of"] <- "Iran"
 country_groups$Country[country_groups$Country == "Korea, Republic of"] <- "Korea"
 country_groups$Country[country_groups$Country == "Lao People's Democratic Republic"] <- "Laos"
@@ -1741,7 +1741,7 @@ write.xlsx(table3, "output\\Table 3.xlsx")
 ###################################################################################################################################
 
 ###################################################################################################################################
-### Footnote 13 Regression ###
+### Footnote 11 Regression ###
 ###################################################################################################################################
 
 # Linear model plural
@@ -1805,7 +1805,7 @@ income_groups
 write.xlsx(income_groups, "output\\Income Groups.xlsx")
 
 ###################################################################################################################################
-### Footnote 15 Regression ###
+### Footnote 13 Regression ###
 ###################################################################################################################################
 
 # Run linear model on relationship between GDP and TPT (in paper)
@@ -1825,7 +1825,7 @@ orgvol <- read.csv("input\\FOW_TVOL_AGE_VOL_RT_A.csv")
 
 # Select relevant variables
 orgvol <- orgvol %>%
-  select(ï..ref_area, classif1, classif2, time, obs_value)
+  select(Ã¯..ref_area, classif1, classif2, time, obs_value)
 
 # Subset dataframe to only include Total (i.e., all age groups)
 orgvol <- subset(orgvol, classif1 == "AGE_AGGREGATE_TOTAL")
@@ -1836,51 +1836,51 @@ orgvol <- pivot_wider(orgvol, names_from = time, values_from = obs_value)
 
 # Re-order columns
 orgvol <- orgvol %>%
-  select(ï..ref_area, classif1, classif2, `2008`, `2010`, `2011`,
+  select(Ã¯..ref_area, classif1, classif2, `2008`, `2010`, `2011`,
          `2012`, `2013`, `2014`, `2015`, `2016`, `2017`, `2018`, `2019`, `2020`)
 
 # Average of all years together
 orgvol$ILO_org <- rowMeans(orgvol[,c(4:15)], na.rm = TRUE)
 
 # Mapping of country names to codes
-orgvol$Country[orgvol$ï..ref_area == "AUS"] <- "Australia"
-orgvol$Country[orgvol$ï..ref_area == "AUT"] <- "Austria"
-orgvol$Country[orgvol$ï..ref_area == "BEL"] <- "Belgium"
-orgvol$Country[orgvol$ï..ref_area == "BGR"] <- "Bulgaria"
-orgvol$Country[orgvol$ï..ref_area == "CAN"] <- "Canada"
-orgvol$Country[orgvol$ï..ref_area == "CHE"] <- "Switzerland"
-orgvol$Country[orgvol$ï..ref_area == "CYP"] <- "Cyprus"
-orgvol$Country[orgvol$ï..ref_area == "CZE"] <- "Czech Republic"
-orgvol$Country[orgvol$ï..ref_area == "DEU"] <- "Germany"
-orgvol$Country[orgvol$ï..ref_area == "DNK"] <- "Denmark"
-orgvol$Country[orgvol$ï..ref_area == "ESP"] <- "Spain"
-orgvol$Country[orgvol$ï..ref_area == "EST"] <- "Estonia"
-orgvol$Country[orgvol$ï..ref_area == "FIN"] <- "Finland"
-orgvol$Country[orgvol$ï..ref_area == "FRA"] <- "France"
-orgvol$Country[orgvol$ï..ref_area == "GBR"] <- "United Kingdom"
-orgvol$Country[orgvol$ï..ref_area == "HRV"] <- "Croatia"
-orgvol$Country[orgvol$ï..ref_area == "HUN"] <- "Hungary"
-orgvol$Country[orgvol$ï..ref_area == "IRL"] <- "Ireland"
-orgvol$Country[orgvol$ï..ref_area == "ISL"] <- "Iceland"
-orgvol$Country[orgvol$ï..ref_area == "ITA"] <- "Italy"
-orgvol$Country[orgvol$ï..ref_area == "LTU"] <- "Lithuania"
-orgvol$Country[orgvol$ï..ref_area == "LUX"] <- "Luxembourg"
-orgvol$Country[orgvol$ï..ref_area == "LVA"] <- "Latvia"
-orgvol$Country[orgvol$ï..ref_area == "MKD"] <- "Macedonia"
-orgvol$Country[orgvol$ï..ref_area == "MLT"] <- "Malta"
-orgvol$Country[orgvol$ï..ref_area == "NLD"] <- "Netherlands"
-orgvol$Country[orgvol$ï..ref_area == "NOR"] <- "Norway"
-orgvol$Country[orgvol$ï..ref_area == "NZL"] <- "New Zealand"
-orgvol$Country[orgvol$ï..ref_area == "POL"] <- "Poland"
-orgvol$Country[orgvol$ï..ref_area == "PRT"] <- "Portugal"
-orgvol$Country[orgvol$ï..ref_area == "ROU"] <- "Romania"
-orgvol$Country[orgvol$ï..ref_area == "SRB"] <- "Serbia"
-orgvol$Country[orgvol$ï..ref_area == "SVK"] <- "Slovak Republic"
-orgvol$Country[orgvol$ï..ref_area == "SVN"] <- "Slovenia"
-orgvol$Country[orgvol$ï..ref_area == "SWE"] <- "Sweden"
-orgvol$Country[orgvol$ï..ref_area == "UKR"] <- "Ukraine"
-orgvol$Country[orgvol$ï..ref_area == "USA"] <- "United States"
-orgvol$Country[orgvol$ï..ref_area == "ZAF"] <- "South Africa"
+orgvol$Country[orgvol$Ã¯..ref_area == "AUS"] <- "Australia"
+orgvol$Country[orgvol$Ã¯..ref_area == "AUT"] <- "Austria"
+orgvol$Country[orgvol$Ã¯..ref_area == "BEL"] <- "Belgium"
+orgvol$Country[orgvol$Ã¯..ref_area == "BGR"] <- "Bulgaria"
+orgvol$Country[orgvol$Ã¯..ref_area == "CAN"] <- "Canada"
+orgvol$Country[orgvol$Ã¯..ref_area == "CHE"] <- "Switzerland"
+orgvol$Country[orgvol$Ã¯..ref_area == "CYP"] <- "Cyprus"
+orgvol$Country[orgvol$Ã¯..ref_area == "CZE"] <- "Czech Republic"
+orgvol$Country[orgvol$Ã¯..ref_area == "DEU"] <- "Germany"
+orgvol$Country[orgvol$Ã¯..ref_area == "DNK"] <- "Denmark"
+orgvol$Country[orgvol$Ã¯..ref_area == "ESP"] <- "Spain"
+orgvol$Country[orgvol$Ã¯..ref_area == "EST"] <- "Estonia"
+orgvol$Country[orgvol$Ã¯..ref_area == "FIN"] <- "Finland"
+orgvol$Country[orgvol$Ã¯..ref_area == "FRA"] <- "France"
+orgvol$Country[orgvol$Ã¯..ref_area == "GBR"] <- "United Kingdom"
+orgvol$Country[orgvol$Ã¯..ref_area == "HRV"] <- "Croatia"
+orgvol$Country[orgvol$Ã¯..ref_area == "HUN"] <- "Hungary"
+orgvol$Country[orgvol$Ã¯..ref_area == "IRL"] <- "Ireland"
+orgvol$Country[orgvol$Ã¯..ref_area == "ISL"] <- "Iceland"
+orgvol$Country[orgvol$Ã¯..ref_area == "ITA"] <- "Italy"
+orgvol$Country[orgvol$Ã¯..ref_area == "LTU"] <- "Lithuania"
+orgvol$Country[orgvol$Ã¯..ref_area == "LUX"] <- "Luxembourg"
+orgvol$Country[orgvol$Ã¯..ref_area == "LVA"] <- "Latvia"
+orgvol$Country[orgvol$Ã¯..ref_area == "MKD"] <- "Macedonia"
+orgvol$Country[orgvol$Ã¯..ref_area == "MLT"] <- "Malta"
+orgvol$Country[orgvol$Ã¯..ref_area == "NLD"] <- "Netherlands"
+orgvol$Country[orgvol$Ã¯..ref_area == "NOR"] <- "Norway"
+orgvol$Country[orgvol$Ã¯..ref_area == "NZL"] <- "New Zealand"
+orgvol$Country[orgvol$Ã¯..ref_area == "POL"] <- "Poland"
+orgvol$Country[orgvol$Ã¯..ref_area == "PRT"] <- "Portugal"
+orgvol$Country[orgvol$Ã¯..ref_area == "ROU"] <- "Romania"
+orgvol$Country[orgvol$Ã¯..ref_area == "SRB"] <- "Serbia"
+orgvol$Country[orgvol$Ã¯..ref_area == "SVK"] <- "Slovak Republic"
+orgvol$Country[orgvol$Ã¯..ref_area == "SVN"] <- "Slovenia"
+orgvol$Country[orgvol$Ã¯..ref_area == "SWE"] <- "Sweden"
+orgvol$Country[orgvol$Ã¯..ref_area == "UKR"] <- "Ukraine"
+orgvol$Country[orgvol$Ã¯..ref_area == "USA"] <- "United States"
+orgvol$Country[orgvol$Ã¯..ref_area == "ZAF"] <- "South Africa"
 
 # Select country and ILO - organization based volunteering percentages (mean of 2008 - 2020)
 orgvol <- orgvol %>%
