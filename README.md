@@ -9,7 +9,7 @@ The purpose this repository is the replication of the findings in Schiltz et al.
 Download the excel file "All variables_third pillar.xlsx". The column "Total" is the Third Pillar Time (% of total employment).
 
 
-[Quick Start Guide.pdf](https://github.com/Belgian-Red-Cross-Flanders/Third-Pillar-Global-Dataset/files/14280113/Quick.Start.Guide.pdf)
+[Quick Start Guide.pdf](https://github.com/Belgian-Red-Cross-Flanders/Third-Pillar-Global-Dataset/files/14281326/Quick.Start.Guide.pdf)
 
 
 
